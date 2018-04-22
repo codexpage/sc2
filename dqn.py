@@ -14,12 +14,12 @@ class DQNAgent:
     def __init__(self, state_size, action_size):
         self.state_size = state_size
         self.action_size = action_size
-        self.memory = deque(maxlen=2000)
+        self.memory = deque(maxlen=10000)
         self.gamma = 0.95    # discount rate
-        self.epsilon = 1.0  # exploration rate
+        self.epsilon = 1.0  # exploration rate 1-pure random
         self.epsilon_min = 0.01
         self.epsilon_decay = 0.995
-        self.learning_rate = 0.001
+        self.learning_rate = 0.3 #0.001
         self.model = self._build_model()
         self.disallowed_actions = {}
 
@@ -67,6 +67,9 @@ class DQNAgent:
         self.model.load_weights(name)
     def save(self, name):
         self.model.save_weights(name)
+
+    def sample(self):
+        pass
 
 
 if __name__ == "__main__":

@@ -120,7 +120,7 @@ for mm_x in range(0, 64):
 
 STATE_LEN = 12
 ACTION_LEN = len(smart_actions)
-BATCHSIZE = 500
+BATCHSIZE = 5000
 teminal_state = np.array([[0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0]])
 
 
