@@ -160,7 +160,7 @@ class SparseAgent(base_agent.BaseAgent):
 
         x = 0
         y = 0
-        if '_' in smart_action:
+        if '_' in smart_action: #if is attack action, return the postion
             smart_action, x, y = smart_action.split('_')
 
         return (smart_action, x, y)
@@ -193,6 +193,8 @@ class SparseAgent(base_agent.BaseAgent):
 
             self.cc_y, self.cc_x = (unit_type == _TERRAN_COMMANDCENTER).nonzero()
 
+        #====get info from map====
+
         cc_y, cc_x = (unit_type == _TERRAN_COMMANDCENTER).nonzero()
         cc_count = 1 if cc_y.any() else 0
 
@@ -208,6 +210,9 @@ class SparseAgent(base_agent.BaseAgent):
         worker_supply = obs.observation['player'][6]
 
         supply_free = supply_limit - supply_used
+
+        # self.update_state()
+        # self.do_action(move_number)
 
         # =============action three part ================
         if self.move_number == 0:
@@ -332,6 +337,19 @@ class SparseAgent(base_agent.BaseAgent):
                     return actions.FunctionCall(_TRAIN_MARINE, [_QUEUED])
 
             elif smart_action == ACTION_ATTACK:
+                # if attack enemy base:
+                # move_number do no increase, attack several times in the area.
+                if (self.base_top_left == 1 and x>32 and y>32 ) or (self.base_top_left == 0 and x<=32 and y <=32):
+                    if hasattr(self,"atk_count"):
+                        if self.atk_count ==3: #attck 3 times
+                            self.atk_count=1
+                        else:
+                            self.atk_count+=1
+                            self.move_number -= 1
+                    else:
+                        self.atk_count=1
+                        self.move_number-=1
+
                 do_it = True
 
                 if len(obs.observation['single_select']) > 0 and obs.observation['single_select'][0][0] == _TERRAN_SCV:
