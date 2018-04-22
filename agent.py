@@ -9,8 +9,8 @@ from pysc2.agents import base_agent
 from pysc2.lib import actions
 from pysc2.lib import features
 
-import  dqn.DQNAgent as dqnAgent
-
+# import  dqn.DQNAgent as dqnAgent
+from dqn import DQNAgent as dqnAgent
 
 _NO_OP = actions.FUNCTIONS.no_op.id
 _SELECT_POINT = actions.FUNCTIONS.select_point.id
@@ -58,7 +58,6 @@ for mm_x in range(0, 64):
     for mm_y in range(0, 64):
         if (mm_x + 1) % 32 == 0 and (mm_y + 1) % 32 == 0:
             smart_actions.append(ACTION_ATTACK + '_' + str(mm_x - 16) + '_' + str(mm_y - 16))
-
 
 # Stolen from https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow
 # class QLearningTable:
@@ -119,16 +118,18 @@ for mm_x in range(0, 64):
 #             self.q_table = self.q_table.append(
 #                 pd.Series([0] * len(self.actions), index=self.q_table.columns, name=state))
 
-STATE_LEN=12
-BATCHSIZE=500
-teminal_state =np.array([0,0,0,0,1,1,1,1,0,0,0,0])
+STATE_LEN = 12
+ACTION_LEN = len(smart_actions)
+BATCHSIZE = 500
+teminal_state = np.array([[0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0]])
+
 
 class SparseAgent(base_agent.BaseAgent):
     def __init__(self):
         super(SparseAgent, self).__init__()
 
         # self.qlearn = QLearningTable(actions=list(range(len(smart_actions))))
-        self.qlearn = dqnAgent(STATE_LEN,len(smart_actions),)
+        self.qlearn = dqnAgent(STATE_LEN, ACTION_LEN)
 
         self.previous_action = None
         self.previous_state = None
@@ -171,8 +172,8 @@ class SparseAgent(base_agent.BaseAgent):
             reward = obs.reward
 
             # self.qlearn.learn(str(self.previous_state), self.previous_action, reward, 'terminal')
-            self.qlearn.remember(self.previous_state, self.previous_action, reward, teminal_state )
-            self.qlearn.replay(BATCHSIZE)
+            self.qlearn.remember(self.previous_state, self.previous_action, reward, teminal_state, True) #这里teminal_state应该是从obs读入
+            self.qlearn.replay(BATCHSIZE)  #在episode完成后开始采样学习
 
             # self.qlearn.q_table.to_pickle(DATA_FILE + '.gz', 'gzip')
             self.qlearn.save(DATA_FILE)
@@ -208,12 +209,11 @@ class SparseAgent(base_agent.BaseAgent):
 
         supply_free = supply_limit - supply_used
 
-        #=============action three part ================
+        # =============action three part ================
         if self.move_number == 0:
             self.move_number += 1
 
-
-            #===========update current state ============
+            # ===========update current state ============
             current_state = np.zeros(12)
             current_state[0] = cc_count
             current_state[1] = supply_depot_count
@@ -248,12 +248,14 @@ class SparseAgent(base_agent.BaseAgent):
             for i in range(0, 4):
                 current_state[i + 8] = green_squares[i]
 
-            #remember transition
+            current_state = np.array([current_state]) #reshape
+
+            # remember transition
             if self.previous_action is not None:
                 # self.qlearn.learn(str(self.previous_state), self.previous_action, 0, str(current_state))
-                self.qlearn.remember(self.previous_state,self.previous_action,0,current_state)
+                self.qlearn.remember(self.previous_state, self.previous_action, 0, current_state, False)
 
-            #consturct excluded actions set based on state
+            # consturct excluded actions set based on state
             excluded_actions = []
             if supply_depot_count == 2 or worker_supply == 0:
                 excluded_actions.append(1)
@@ -270,14 +272,14 @@ class SparseAgent(base_agent.BaseAgent):
                 excluded_actions.append(6)
                 excluded_actions.append(7)
 
-            #choose action
+            # get chosen action index
             # rl_action = self.qlearn.choose_action(str(current_state), excluded_actions)
-            rl_action = self.qlearn.act(current_state,excluded_actions)
+            rl_action = self.qlearn.act(current_state, excluded_actions)
 
             self.previous_state = current_state
             self.previous_action = rl_action
 
-            #============== do action part ============
+            # ============== do action part ============
             smart_action, x, y = self.splitAction(self.previous_action)
 
             if smart_action == ACTION_BUILD_BARRACKS or smart_action == ACTION_BUILD_SUPPLY_DEPOT:

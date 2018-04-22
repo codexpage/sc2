@@ -1,0 +1,287 @@
+pydev debugger: process 7564 is connecting
+
+C:\ProgramData\Anaconda3\lib\site-packages\h5py\__init__.py:34: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+I0421 18:41:26.800195 16504 sc_process.py:148] Connection attempt 0 (running: None)
+I0421 18:41:28.813158 16504 sc_process.py:148] Connection attempt 1 (running: None)
+I0421 18:41:30.852079 16504 sc_process.py:148] Connection attempt 2 (running: None)
+I0421 18:41:32.864193 16504 sc_process.py:148] Connection attempt 3 (running: None)
+I0421 18:41:34.875430 16504 sc_process.py:148] Connection attempt 4 (running: None)
+I0421 18:41:36.915521 16504 sc_process.py:148] Connection attempt 5 (running: None)
+I0421 18:41:38.938594 16504 sc_process.py:148] Connection attempt 6 (running: None)
+I0421 18:41:40.968064 16504 sc_process.py:148] Connection attempt 7 (running: None)
+I0421 18:41:50.138112 16504 sc2_env.py:200] Environment is ready.
+2018-04-21 18:41:50.244819: I T:\src\github\tensorflow\tensorflow\core\platform\cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+I0421 18:41:50.293537 16504 sc2_env.py:240] Starting episode: 1
+   0/no_op                                              ()
+   1/move_camera                                        (1/minimap [64, 64])
+   2/select_point                                       (6/select_point_act [4]; 0/screen [84, 84])
+   3/select_rect                                        (7/select_add [2]; 0/screen [84, 84]; 2/screen2 [84, 84])
+   4/select_control_group                               (4/control_group_act [5]; 5/control_group_id [10])
+ 453/Stop_quick                                         (3/queued [2])
+ 230/Effect_Spray_screen                                (3/queued [2]; 0/screen [84, 84])
+ 451/Smart_screen                                       (3/queued [2]; 0/screen [84, 84])
+ 264/Harvest_Gather_screen                              (3/queued [2]; 0/screen [84, 84])
+ 452/Smart_minimap                                      (3/queued [2]; 1/minimap [64, 64])
+ 331/Move_screen                                        (3/queued [2]; 0/screen [84, 84])
+ 332/Move_minimap                                       (3/queued [2]; 1/minimap [64, 64])
+ 333/Patrol_screen                                      (3/queued [2]; 0/screen [84, 84])
+ 334/Patrol_minimap                                     (3/queued [2]; 1/minimap [64, 64])
+  12/Attack_screen                                      (3/queued [2]; 0/screen [84, 84])
+  13/Attack_minimap                                     (3/queued [2]; 1/minimap [64, 64])
+ 274/HoldPosition_quick                                 (3/queued [2])
+ 220/Effect_Repair_screen                               (3/queued [2]; 0/screen [84, 84])
+ 221/Effect_Repair_autocast                             ()
+ 269/Harvest_Return_quick                               (3/queued [2])
+  79/Build_Refinery_screen                              (3/queued [2]; 0/screen [84, 84])
+  91/Build_SupplyDepot_screen                           (3/queued [2]; 0/screen [84, 84])
+ 261/Halt_quick                                         (3/queued [2])
+  50/Build_EngineeringBay_screen                        (3/queued [2]; 0/screen [84, 84])
+  42/Build_Barracks_screen                              (3/queued [2]; 0/screen [84, 84])
+   5/select_unit                                        (8/select_unit_act [4]; 9/select_unit_id [500])
+ 140/Cancel_quick                                       (3/queued [2])
+ 335/Rally_Units_screen                                 (3/queued [2]; 0/screen [84, 84])
+ 336/Rally_Units_minimap                                (3/queued [2]; 1/minimap [64, 64])
+ 281/Lift_quick                                         (3/queued [2])
+ 477/Train_Marine_quick                                 (3/queued [2])
+  43/Build_Bunker_screen                                (3/queued [2]; 0/screen [84, 84])
+  44/Build_CommandCenter_screen                         (3/queued [2]; 0/screen [84, 84])
+ 168/Cancel_Last_quick                                  (3/queued [2])
+   7/select_army                                        (7/select_add [2])
+  11/build_queue                                        (11/build_queue_id [10])
+   6/select_idle_worker                                 (10/select_worker [4])
+I0421 18:43:46.120411 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7250]
+I0421 18:43:53.854286 16504 sc2_env.py:240] Starting episode: 2
+I0421 18:45:38.101113 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7455]
+I0421 18:45:45.130022 16504 sc2_env.py:240] Starting episode: 3
+I0421 18:47:04.822870 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [4770]
+I0421 18:47:12.367952 16504 sc2_env.py:240] Starting episode: 4
+I0421 18:48:12.077018 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [3290]
+I0421 18:48:19.435879 16504 sc2_env.py:240] Starting episode: 5
+I0421 18:50:32.763363 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [9800]
+I0421 18:50:39.872478 16504 sc2_env.py:240] Starting episode: 6
+I0421 18:52:53.615627 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [8450]
+I0421 18:53:00.721512 16504 sc2_env.py:240] Starting episode: 7
+I0421 18:54:40.421614 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6710]
+I0421 18:54:47.596183 16504 sc2_env.py:240] Starting episode: 8
+I0421 18:55:47.123896 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [4320]
+I0421 18:55:54.239212 16504 sc2_env.py:240] Starting episode: 9
+I0421 18:58:03.077223 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [11100]
+I0421 18:58:10.176768 16504 sc2_env.py:240] Starting episode: 10
+I0421 18:59:57.917841 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6360]
+I0421 19:00:05.001995 16504 sc2_env.py:240] Starting episode: 11
+I0421 19:02:17.139595 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [10950]
+I0421 19:02:24.234151 16504 sc2_env.py:240] Starting episode: 12
+I0421 19:04:08.390761 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7755]
+I0421 19:04:15.542570 16504 sc2_env.py:240] Starting episode: 13
+I0421 19:05:57.465473 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6965]
+I0421 19:06:04.787059 16504 sc2_env.py:240] Starting episode: 14
+I0421 19:08:17.240620 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [9295]
+I0421 19:08:24.323698 16504 sc2_env.py:240] Starting episode: 15
+I0421 19:10:29.560322 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [11495]
+I0421 19:10:36.745994 16504 sc2_env.py:240] Starting episode: 16
+I0421 19:12:11.431893 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7160]
+I0421 19:12:18.497940 16504 sc2_env.py:240] Starting episode: 17
+I0421 19:13:13.784909 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [3950]
+I0421 19:13:20.860007 16504 sc2_env.py:240] Starting episode: 18
+I0421 19:15:35.793280 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [8900]
+I0421 19:15:42.904036 16504 sc2_env.py:240] Starting episode: 19
+I0421 19:17:39.446926 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7555]
+I0421 19:17:46.741419 16504 sc2_env.py:240] Starting episode: 20
+I0421 19:19:53.036093 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [11250]
+I0421 19:20:00.207977 16504 sc2_env.py:240] Starting episode: 21
+I0421 19:21:34.492258 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6205]
+I0421 19:21:41.613210 16504 sc2_env.py:240] Starting episode: 22
+I0421 19:23:51.490665 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6850]
+I0421 19:23:58.624278 16504 sc2_env.py:240] Starting episode: 23
+I0421 19:26:05.638370 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [11195]
+I0421 19:26:12.696345 16504 sc2_env.py:240] Starting episode: 24
+I0421 19:28:00.268696 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6850]
+I0421 19:28:07.306693 16504 sc2_env.py:240] Starting episode: 25
+I0421 19:28:52.453790 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [3275]
+I0421 19:28:59.668683 16504 sc2_env.py:240] Starting episode: 26
+I0421 19:30:42.937518 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7730]
+I0421 19:30:50.011581 16504 sc2_env.py:240] Starting episode: 27
+I0421 19:32:40.440531 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7450]
+I0421 19:32:47.592461 16504 sc2_env.py:240] Starting episode: 28
+I0421 19:34:54.981499 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [11345]
+I0421 19:35:02.032384 16504 sc2_env.py:240] Starting episode: 29
+I0421 19:36:46.828747 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6040]
+I0421 19:36:53.988095 16504 sc2_env.py:240] Starting episode: 30
+I0421 19:39:04.857153 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [7450]
+I0421 19:39:12.037000 16504 sc2_env.py:240] Starting episode: 31
+I0421 19:40:32.022265 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [5605]
+I0421 19:40:39.107744 16504 sc2_env.py:240] Starting episode: 32
+I0421 19:41:41.767044 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6545]
+I0421 19:41:49.047904 16504 sc2_env.py:240] Starting episode: 33
+I0421 19:43:58.074383 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6950]
+I0421 19:44:05.186129 16504 sc2_env.py:240] Starting episode: 34
+I0421 19:45:38.195672 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [5870]
+I0421 19:45:45.348638 16504 sc2_env.py:240] Starting episode: 35
+I0421 19:47:06.274127 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [4845]
+I0421 19:47:13.683135 16504 sc2_env.py:240] Starting episode: 36
+I0421 19:48:56.545778 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6940]
+I0421 19:49:03.788241 16504 sc2_env.py:240] Starting episode: 37
+I0421 19:50:27.540883 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6235]
+I0421 19:50:34.715922 16504 sc2_env.py:240] Starting episode: 38
+I0421 19:52:16.563449 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6190]
+I0421 19:52:23.624429 16504 sc2_env.py:240] Starting episode: 39
+I0421 19:54:09.959652 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [1985]
+I0421 19:54:17.062682 16504 sc2_env.py:240] Starting episode: 40
+I0421 19:56:45.820600 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7200]
+I0421 19:56:53.511393 16504 sc2_env.py:240] Starting episode: 41
+I0421 19:59:46.982704 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [8095]
+I0421 19:59:54.550288 16504 sc2_env.py:240] Starting episode: 42
+I0421 20:01:58.194745 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6420]
+I0421 20:02:05.779146 16504 sc2_env.py:240] Starting episode: 43
+I0421 20:03:22.721973 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [3950]
+I0421 20:03:30.309303 16504 sc2_env.py:240] Starting episode: 44
+I0421 20:05:53.249968 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7875]
+I0421 20:06:00.907016 16504 sc2_env.py:240] Starting episode: 45
+I0421 20:08:35.966399 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7715]
+I0421 20:08:43.493282 16504 sc2_env.py:240] Starting episode: 46
+I0421 20:10:35.724477 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6120]
+I0421 20:10:43.395835 16504 sc2_env.py:240] Starting episode: 47
+I0421 20:12:09.543851 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [3765]
+I0421 20:12:17.077107 16504 sc2_env.py:240] Starting episode: 48
+I0421 20:14:09.342657 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [5760]
+I0421 20:14:16.929190 16504 sc2_env.py:240] Starting episode: 49
+I0421 20:16:11.373256 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [5320]
+I0421 20:16:18.816708 16504 sc2_env.py:240] Starting episode: 50
+I0421 20:17:57.156071 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [4375]
+I0421 20:18:04.817482 16504 sc2_env.py:240] Starting episode: 51
+I0421 20:20:27.908403 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7210]
+I0421 20:20:35.575955 16504 sc2_env.py:240] Starting episode: 52
+I0421 20:22:46.356749 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6225]
+I0421 20:22:54.068660 16504 sc2_env.py:240] Starting episode: 53
+I0421 20:24:19.877242 16504 sc2_env.py:310] Episode finished. Outcome: [1], reward: [1], score: [7920]
+I0421 20:24:27.639664 16504 sc2_env.py:240] Starting episode: 54
+I0421 20:26:12.951323 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6450]
+I0421 20:26:21.321653 16504 sc2_env.py:240] Starting episode: 55
+I0421 20:29:02.512324 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7375]
+I0421 20:29:11.006117 16504 sc2_env.py:240] Starting episode: 56
+I0421 20:31:05.209618 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6630]
+I0421 20:31:13.008189 16504 sc2_env.py:240] Starting episode: 57
+I0421 20:33:06.017005 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6290]
+I0421 20:33:13.783928 16504 sc2_env.py:240] Starting episode: 58
+I0421 20:35:46.523144 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7410]
+I0421 20:35:54.245291 16504 sc2_env.py:240] Starting episode: 59
+I0421 20:38:06.068372 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7635]
+I0421 20:38:14.209618 16504 sc2_env.py:240] Starting episode: 60
+I0421 20:40:00.825773 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [6155]
+I0421 20:40:08.017857 16504 sc2_env.py:240] Starting episode: 61
+I0421 20:42:22.715979 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [8450]
+I0421 20:42:30.421813 16504 sc2_env.py:240] Starting episode: 62
+I0421 20:45:31.013818 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [8560]
+I0421 20:45:39.760425 16504 sc2_env.py:240] Starting episode: 63
+I0421 20:48:15.364845 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [10395]
+I0421 20:48:23.024450 16504 sc2_env.py:240] Starting episode: 64
+I0421 20:50:04.941597 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [4735]
+I0421 20:50:12.621195 16504 sc2_env.py:240] Starting episode: 65
+I0421 20:52:05.905508 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [5310]
+I0421 20:52:13.568737 16504 sc2_env.py:240] Starting episode: 66
+I0421 20:54:58.631093 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [11550]
+I0421 20:55:07.217867 16504 sc2_env.py:240] Starting episode: 67
+I0421 20:58:18.275312 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [8800]
+I0421 20:58:25.951293 16504 sc2_env.py:240] Starting episode: 68
+I0421 21:00:16.126113 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [5600]
+I0421 21:00:23.946460 16504 sc2_env.py:240] Starting episode: 69
+I0421 21:03:23.120802 16504 sc2_env.py:310] Episode finished. Outcome: [0], reward: [0], score: [9145]
+I0421 21:03:30.759800 16504 sc2_env.py:240] Starting episode: 70
+I0421 21:05:56.687453 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7720]
+I0421 21:06:05.841134 16504 sc2_env.py:240] Starting episode: 71
+I0421 21:08:37.423937 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [7135]
+I0421 21:08:45.099458 16504 sc2_env.py:240] Starting episode: 72
+I0421 21:11:16.331211 16504 sc2_env.py:310] Episode finished. Outcome: [-1], reward: [-1], score: [8200]
+I0421 21:11:25.297521 16504 sc2_env.py:240] Starting episode: 73
+I0421 21:12:37.900609 16504 sc2_env.py:310] Episode finished. Outcome: [1], reward: [1], score: [6415]
+I0421 21:12:45.645363 16504 sc2_env.py:240] Starting episode: 74
+Took 9197.989 seconds for 206562 steps: 22.457 fps
+I0421 21:15:08.286627 16504 sc2_env.py:327] Environment Close
+I0421 21:15:08.295614 16504 sc2_env.py:342] 
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\websocket\_socket.py", line 81, in recv
+    bytes_ = sock.recv(bufsize)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm 2018.1\helpers\pydev\pydevd.py", line 1664, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm 2018.1\helpers\pydev\pydevd.py", line 1658, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm 2018.1\helpers\pydev\pydevd.py", line 1068, in run
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm 2018.1\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:/ProgramData/Anaconda3/Lib/runpy.py", line 294, in <module>
+    _run_module_as_main(sys.argv[0])
+  File "C:/ProgramData/Anaconda3/Lib/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "C:/ProgramData/Anaconda3/Lib/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\bin\agent.py", line 112, in <module>
+    app.run(main)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\absl\app.py", line 274, in run
+    _run_main(main, argv)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\absl\app.py", line 238, in _run_main
+    sys.exit(main(argv))
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\bin\agent.py", line 98, in main
+    run_thread(agent_cls, FLAGS.map, FLAGS.render)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\bin\agent.py", line 77, in run_thread
+    run_loop.run_loop([agent], env, FLAGS.max_agent_steps)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\env\run_loop.py", line 46, in run_loop
+    timesteps = env.step(actions)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\env\available_actions_printer.py", line 32, in step
+    all_obs = super(AvailableActionsPrinter, self).step(*args, **kwargs)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\env\base_env_wrapper.py", line 42, in step
+    return self._env.step(*args, **kwargs)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\lib\stopwatch.py", line 197, in _stopwatch
+    return func(*args, **kwargs)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\env\sc2_env.py", line 257, in step
+    return self._step()
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\env\sc2_env.py", line 261, in _step
+    self._obs = self._parallel.run(c.observe for c in self._controllers)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\lib\run_parallel.py", line 56, in run
+    return [funcs[0]()]
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\lib\remote_controller.py", line 80, in _valid_status
+    return func(self, *args, **kwargs)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\lib\stopwatch.py", line 197, in _stopwatch
+    return func(*args, **kwargs)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\lib\remote_controller.py", line 157, in observe
+    return self._client.send(observation=sc_pb.RequestObservation())
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\lib\protocol.py", line 127, in send
+    res = self.send_req(sc_pb.Request(**kwargs))
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\lib\protocol.py", line 113, in send_req
+    return self.read()
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\lib\stopwatch.py", line 197, in _stopwatch
+    return func(*args, **kwargs)
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\lib\protocol.py", line 86, in read
+    response = self._read()
+  File "C:\Users\yywwx\Desktop\sc2\pysc2\pysc2\lib\protocol.py", line 152, in _read
+    response_str = self._sock.recv()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\websocket\_core.py", line 300, in recv
+    opcode, data = self.recv_data()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\websocket\_core.py", line 317, in recv_data
+    opcode, frame = self.recv_data_frame(control_frame)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\websocket\_core.py", line 330, in recv_data_frame
+    frame = self.recv_frame()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\websocket\_core.py", line 364, in recv_frame
+    return self.frame_buffer.recv_frame()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\websocket\_abnf.py", line 375, in recv_frame
+    payload = self.recv_strict(length)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\websocket\_abnf.py", line 396, in recv_strict
+    bytes_ = self.recv(min(16384, shortage))
+  File "C:\ProgramData\Anaconda3\lib\site-packages\websocket\_core.py", line 434, in _recv
+    return recv(self.sock, bufsize)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\websocket\_socket.py", line 84, in recv
+    raise WebSocketTimeoutException(message)
+websocket._exceptions.WebSocketTimeoutException: timed out
+I0421 21:15:09.202834 16504 sc2_env.py:327] Environment Close
+I0421 21:15:09.203335 16504 sc2_env.py:342] 
+I0421 21:15:09.203335 16504 sc2_env.py:327] Environment Close
+I0421 21:15:09.203837 16504 sc2_env.py:342] 
+W0421 21:15:12.319898 16504 sc_process.py:183] Killing the process.
+I0421 21:15:13.074012 16504 sc_process.py:166] Shutdown with return code: 1

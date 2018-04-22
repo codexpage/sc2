@@ -21,6 +21,7 @@ class DQNAgent:
         self.epsilon_decay = 0.995
         self.learning_rate = 0.001
         self.model = self._build_model()
+        self.disallowed_actions = {}
 
     def _build_model(self):
         # Neural Net for Deep-Q learning Model
@@ -36,11 +37,16 @@ class DQNAgent:
     def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
 
-    def act(self, state): #选action
+    def act(self, state, excluded_actions=[]):
+        action_available = list(range(self.action_size))
+        np.delete(action_available,excluded_actions)
+
         if np.random.rand() <= self.epsilon:
-            return random.randrange(self.action_size)
-        act_values = self.model.predict(state)
-        return np.argmax(act_values[0])  # returns action
+            # return random.randrange(self.action_size)
+            return random.choice(action_available)
+        act_values = self.model.predict(state) #返回shape (1,8)
+        return np.argmax(act_values[0][action_available])
+        # return np.argmax(act_values[0])  # returns action index
 
     def replay(self, batch_size):
         minibatch = random.sample(self.memory, batch_size) #随机抽取一个batch
@@ -49,6 +55,7 @@ class DQNAgent:
             if not done:
                 target = (reward + self.gamma *
                           np.amax(self.model.predict(next_state)[0]))
+            # print(state)
             target_f = self.model.predict(state)
             target_f[0][action] = target #只更改所选定的action的value
             self.model.fit(state, target_f, epochs=1, verbose=0) #fit就是update模型
