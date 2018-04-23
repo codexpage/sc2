@@ -1,19 +1,19 @@
-pydev debugger: process 13228 is connecting
+pydev debugger: process 2256 is connecting
 
 C:\ProgramData\Anaconda3\lib\site-packages\h5py\__init__.py:34: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
 Using TensorFlow backend.
-I0422 23:37:55.475923 11936 sc_process.py:148] Connection attempt 0 (running: None)
-I0422 23:37:57.505887 11936 sc_process.py:148] Connection attempt 1 (running: None)
-I0422 23:37:59.538060 11936 sc_process.py:148] Connection attempt 2 (running: None)
-I0422 23:38:01.559528 11936 sc_process.py:148] Connection attempt 3 (running: None)
-I0422 23:38:03.595226 11936 sc_process.py:148] Connection attempt 4 (running: None)
-I0422 23:38:05.628229 11936 sc_process.py:148] Connection attempt 5 (running: None)
-I0422 23:38:07.638640 11936 sc_process.py:148] Connection attempt 6 (running: None)
-I0422 23:38:09.651761 11936 sc_process.py:148] Connection attempt 7 (running: None)
-I0422 23:38:19.132848 11936 sc2_env.py:200] Environment is ready.
-2018-04-22 23:38:19.238855: I T:\src\github\tensorflow\tensorflow\core\platform\cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
-I0422 23:38:19.288764 11936 sc2_env.py:240] Starting episode: 1
+I0422 23:58:06.922351 15432 sc_process.py:148] Connection attempt 0 (running: None)
+I0422 23:58:08.927011 15432 sc_process.py:148] Connection attempt 1 (running: None)
+I0422 23:58:10.941871 15432 sc_process.py:148] Connection attempt 2 (running: None)
+I0422 23:58:12.973342 15432 sc_process.py:148] Connection attempt 3 (running: None)
+I0422 23:58:15.004470 15432 sc_process.py:148] Connection attempt 4 (running: None)
+I0422 23:58:17.022423 15432 sc_process.py:148] Connection attempt 5 (running: None)
+I0422 23:58:19.050289 15432 sc_process.py:148] Connection attempt 6 (running: None)
+I0422 23:58:21.074046 15432 sc_process.py:148] Connection attempt 7 (running: None)
+I0422 23:58:30.657526 15432 sc2_env.py:200] Environment is ready.
+2018-04-22 23:58:30.765962: I T:\src\github\tensorflow\tensorflow\core\platform\cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+I0422 23:58:30.813943 15432 sc2_env.py:240] Starting episode: 1
    0/no_op                                              ()
    1/move_camera                                        (1/minimap [64, 64])
    2/select_point                                       (6/select_point_act [4]; 0/screen [84, 84])
@@ -34,24 +34,171 @@ I0422 23:38:19.288764 11936 sc2_env.py:240] Starting episode: 1
  220/Effect_Repair_screen                               (3/queued [2]; 0/screen [84, 84])
  221/Effect_Repair_autocast                             ()
  269/Harvest_Return_quick                               (3/queued [2])
-18 attack base 47 47 1
   79/Build_Refinery_screen                              (3/queued [2]; 0/screen [84, 84])
-19 attack base 47 47 2
-20 attack base 47 47 3
-21 attack base 47 47 4
-22 attack base 47 47 5
   91/Build_SupplyDepot_screen                           (3/queued [2]; 0/screen [84, 84])
-23 attack base 47 47 6
   50/Build_EngineeringBay_screen                        (3/queued [2]; 0/screen [84, 84])
-38 attack base 47 47 1
-39 attack base 47 47 2
-40 attack base 47 47 3
-41 attack base 47 47 4
-42 attack base 47 47 5
-43 attack base 47 47 6
-55 attack base 47 47 1
-56 attack base 47 47 2
-57 attack base 47 47 3
-58 attack base 47 47 4
-59 attack base 47 47 5
-60 attack base 47 47 6
+ 261/Halt_quick                                         (3/queued [2])
+   6/select_idle_worker                                 (10/select_worker [4])
+  42/Build_Barracks_screen                              (3/queued [2]; 0/screen [84, 84])
+ 140/Cancel_quick                                       (3/queued [2])
+ 335/Rally_Units_screen                                 (3/queued [2]; 0/screen [84, 84])
+ 336/Rally_Units_minimap                                (3/queued [2]; 1/minimap [64, 64])
+   5/select_unit                                        (8/select_unit_act [4]; 9/select_unit_id [500])
+ 281/Lift_quick                                         (3/queued [2])
+ 477/Train_Marine_quick                                 (3/queued [2])
+ 168/Cancel_Last_quick                                  (3/queued [2])
+264 attack base 15 15 1
+265 attack base 15 15 2
+266 attack base 15 15 3
+267 attack base 15 15 4
+268 attack base 15 15 5
+269 attack base 15 15 6
+270 attack base 15 15 7
+271 attack base 15 15 8
+272 attack base 15 15 9
+273 attack base 15 15 10
+274 attack base 15 15 11
+275 attack base 15 15 12
+276 attack base 15 15 13
+277 attack base 15 15 14
+278 attack base 15 15 15
+279 attack base 15 15 16
+280 attack base 15 15 17
+281 attack base 15 15 18
+282 attack base 15 15 19
+283 attack base 15 15 20
+284 attack base 15 15 21
+285 attack base 15 15 22
+   7/select_army                                        (7/select_add [2])
+286 attack base 15 15 23
+287 attack base 15 15 24
+288 attack base 15 15 25
+289 attack base 15 15 26
+290 attack base 15 15 27
+291 attack base 15 15 28
+292 attack base 15 15 29
+293 attack base 15 15 30
+294 attack base 15 15 31
+295 attack base 15 15 32
+296 attack base 15 15 33
+297 attack base 15 15 34
+298 attack base 15 15 35
+299 attack base 15 15 36
+300 attack base 15 15 37
+301 attack base 15 15 38
+302 attack base 15 15 39
+303 attack base 15 15 40
+304 attack base 15 15 41
+305 attack base 15 15 42
+306 attack base 15 15 43
+307 attack base 15 15 44
+308 attack base 15 15 45
+309 attack base 15 15 46
+310 attack base 15 15 47
+311 attack base 15 15 48
+312 attack base 15 15 49
+313 attack base 15 15 50
+314 attack base 15 15 51
+315 attack base 15 15 52
+316 attack base 15 15 53
+317 attack base 15 15 54
+318 attack base 15 15 55
+319 attack base 15 15 56
+320 attack base 15 15 57
+321 attack base 15 15 58
+322 attack base 15 15 59
+323 attack base 15 15 60
+324 attack base 15 15 61
+325 attack base 15 15 62
+326 attack base 15 15 63
+327 attack base 15 15 64
+328 attack base 15 15 65
+329 attack base 15 15 66
+330 attack base 15 15 67
+331 attack base 15 15 68
+332 attack base 15 15 69
+333 attack base 15 15 70
+334 attack base 15 15 71
+335 attack base 15 15 72
+336 attack base 15 15 73
+337 attack base 15 15 74
+338 attack base 15 15 75
+339 attack base 15 15 76
+340 attack base 15 15 77
+341 attack base 15 15 78
+342 attack base 15 15 79
+343 attack base 15 15 80
+344 attack base 15 15 81
+345 attack base 15 15 82
+346 attack base 15 15 83
+347 attack base 15 15 84
+348 attack base 15 15 85
+349 attack base 15 15 86
+350 attack base 15 15 87
+351 attack base 15 15 88
+352 attack base 15 15 89
+353 attack base 15 15 90
+354 attack base 15 15 91
+355 attack base 15 15 92
+356 attack base 15 15 93
+357 attack base 15 15 94
+358 attack base 15 15 95
+359 attack base 15 15 96
+360 attack base 15 15 97
+361 attack base 15 15 98
+362 attack base 15 15 99
+363 attack base 15 15 100
+393 attack base 15 15 1
+394 attack base 15 15 2
+395 attack base 15 15 3
+396 attack base 15 15 4
+397 attack base 15 15 5
+398 attack base 15 15 6
+399 attack base 15 15 7
+400 attack base 15 15 8
+401 attack base 15 15 9
+402 attack base 15 15 10
+403 attack base 15 15 11
+404 attack base 15 15 12
+405 attack base 15 15 13
+406 attack base 15 15 14
+407 attack base 15 15 15
+408 attack base 15 15 16
+409 attack base 15 15 17
+410 attack base 15 15 18
+411 attack base 15 15 19
+412 attack base 15 15 20
+413 attack base 15 15 21
+414 attack base 15 15 22
+415 attack base 15 15 23
+416 attack base 15 15 24
+417 attack base 15 15 25
+418 attack base 15 15 26
+419 attack base 15 15 27
+420 attack base 15 15 28
+421 attack base 15 15 29
+422 attack base 15 15 30
+423 attack base 15 15 31
+424 attack base 15 15 32
+425 attack base 15 15 33
+426 attack base 15 15 34
+427 attack base 15 15 35
+428 attack base 15 15 36
+429 attack base 15 15 37
+430 attack base 15 15 38
+431 attack base 15 15 39
+432 attack base 15 15 40
+433 attack base 15 15 41
+434 attack base 15 15 42
+435 attack base 15 15 43
+436 attack base 15 15 44
+437 attack base 15 15 45
+438 attack base 15 15 46
+439 attack base 15 15 47
+440 attack base 15 15 48
+441 attack base 15 15 49
+442 attack base 15 15 50
+443 attack base 15 15 51
+444 attack base 15 15 52
+445 attack base 15 15 53
+446 attack base 15 15 54

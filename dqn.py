@@ -15,11 +15,11 @@ class DQNAgent:
         self.state_size = state_size
         self.action_size = action_size
         self.memory = deque(maxlen=10000)
-        self.gamma = 0.99    # discount rate 0.95
+        self.gamma = 0.99  # discount rate 0.95
         self.epsilon = 1.0  # exploration rate 1-pure random
         self.epsilon_min = 0.01
         self.epsilon_decay = 0.995
-        self.learning_rate = 0.6 #0.001
+        self.learning_rate = 0.6  # 0.001
         self.model = self._build_model()
         self.disallowed_actions = {}
 
@@ -33,29 +33,29 @@ class DQNAgent:
                       optimizer=Adam(lr=self.learning_rate))
         return model
 
-    #存储transition
+    # 存储transition
     def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
 
     def act(self, state, excluded_actions=[]):
         action_available = list(range(self.action_size))
-        np.delete(action_available,excluded_actions)
+        action_available = np.delete(action_available, excluded_actions) #delete the value by index
 
         if np.random.rand() <= self.epsilon:
             # return random.randrange(self.action_size)
             return random.choice(action_available)
-        act_values = self.model.predict(state) #返回shape (1,8)
+        act_values = self.model.predict(state)  # 返回shape (1,8)
         return np.argmax(act_values[0][action_available])
         # return np.argmax(act_values[0])  # returns action index
 
     def replay(self, batch_size):
         print(len(self.memory))
-        if len(self.memory)<batch_size:
+        if len(self.memory) < batch_size:
             minibatch = list(self.memory)
         else:
-            minibatch = random.sample(self.memory, batch_size) #随机抽取一个batch
+            minibatch = random.sample(self.memory, batch_size)  # 随机抽取一个batch
         for state, action, reward, next_state, done in minibatch:
-            if (state == next_state).all(): #skip the trasition to oneself, which do not contribute to learning
+            if (state == next_state).all():  # skip the trasition to oneself, which do not contribute to learning
                 print("same state")
                 continue
             target = reward
@@ -64,22 +64,24 @@ class DQNAgent:
                           np.amax(self.model.predict(next_state)[0]))
             # print(state)
             target_f = self.model.predict(state)
-            target_f[0][action] = target #只更改所选定的action的value
-            self.model.fit(state, target_f, epochs=1, verbose=0) #fit就是update模型
+            target_f[0][action] = target  # 只更改所选定的action的value
+            self.model.fit(state, target_f, epochs=1, verbose=0)  # fit就是update模型
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
 
-    #模型保存和读取
+    # 模型保存和读取
     def load(self, name):
         self.model.load_weights(name)
+
     def save(self, name):
         self.model.save_weights(name)
 
     def sample(self, batch_size):
-        prob = np.array([(5 if transition[2] == 0 else 25) for transition in self.memory]) #give more prob on 1 and -1
+        prob = np.array([(5 if transition[2] == 0 else 25) for transition in self.memory])  # give more prob on 1 and -1
         prob = prob / sum(prob)
         minibatch = np.random.choice(self.memory, batch_size, p=prob)
         return minibatch
+
 
 if __name__ == "__main__":
     env = gym.make('CartPole-v1')
@@ -95,19 +97,19 @@ if __name__ == "__main__":
         state = np.reshape(state, [1, state_size])
         for time in range(500):
             # env.render()
-            action = agent.act(state) #选action
-            next_state, reward, done, _ = env.step(action) #做action
-            reward = reward if not done else -10 #这里结束就输了，所以reward -10
+            action = agent.act(state)  # 选action
+            next_state, reward, done, _ = env.step(action)  # 做action
+            reward = reward if not done else -10  # 这里结束就输了，所以reward -10
             if done:
                 print("done")
             next_state = np.reshape(next_state, [1, state_size])
-            agent.remember(state, action, reward, next_state, done) #存储transition
+            agent.remember(state, action, reward, next_state, done)  # 存储transition
             state = next_state
             if done:
                 print("episode: {}/{}, score: {}, e: {:.2}"
                       .format(e, EPISODES, time, agent.epsilon))
                 break
-        if len(agent.memory) > batch_size: #当存储的transition足够之后，开始抽取学习
+        if len(agent.memory) > batch_size:  # 当存储的transition足够之后，开始抽取学习
             agent.replay(batch_size)
         # if e % 10 == 0:
         #     agent.save("./save/cartpole-dqn.h5")

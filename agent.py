@@ -160,7 +160,7 @@ class SparseAgent(base_agent.BaseAgent):
 
         x = 0
         y = 0
-        if '_' in smart_action: #if is attack action, return the postion
+        if '_' in smart_action:  # if is attack action, return the postion
             smart_action, x, y = smart_action.split('_')
 
         return (smart_action, x, y)
@@ -172,8 +172,9 @@ class SparseAgent(base_agent.BaseAgent):
             reward = obs.reward
 
             # self.qlearn.learn(str(self.previous_state), self.previous_action, reward, 'terminal')
-            self.qlearn.remember(self.previous_state, self.previous_action, reward, teminal_state, True) #这里teminal_state应该是从obs读入
-            self.qlearn.replay(BATCHSIZE)  #在episode完成后开始采样学习
+            self.qlearn.remember(self.previous_state, self.previous_action, reward, teminal_state,
+                                 True)  # 这里teminal_state应该是从obs读入
+            self.qlearn.replay(BATCHSIZE)  # 在episode完成后开始采样学习
 
             # self.qlearn.q_table.to_pickle(DATA_FILE + '.gz', 'gzip')
             self.qlearn.save(DATA_FILE)
@@ -193,7 +194,7 @@ class SparseAgent(base_agent.BaseAgent):
 
             self.cc_y, self.cc_x = (unit_type == _TERRAN_COMMANDCENTER).nonzero()
 
-        #====get info from map====
+        # ====get info from map====
 
         cc_y, cc_x = (unit_type == _TERRAN_COMMANDCENTER).nonzero()
         cc_count = 1 if cc_y.any() else 0
@@ -253,14 +254,14 @@ class SparseAgent(base_agent.BaseAgent):
             for i in range(0, 4):
                 current_state[i + 8] = green_squares[i]
 
-            current_state = np.array([current_state]) #reshape
+            current_state = np.array([current_state])  # reshape
 
             # remember transition
             if self.previous_action is not None:
                 # self.qlearn.learn(str(self.previous_state), self.previous_action, 0, str(current_state))
                 self.qlearn.remember(self.previous_state, self.previous_action, 0, current_state, False)
 
-            # consturct excluded actions set based on state
+            # excluded actions
             excluded_actions = []
             if supply_depot_count == 2 or worker_supply == 0:
                 excluded_actions.append(1)
@@ -272,12 +273,9 @@ class SparseAgent(base_agent.BaseAgent):
                 excluded_actions.append(3)
 
             if army_supply == 0:
-                excluded_actions.append(4)
-                excluded_actions.append(5)
-                excluded_actions.append(6)
-                excluded_actions.append(7)
+                excluded_actions.extend([4, 5, 6, 7])
 
-            # get chosen action index
+                # get chosen action index
             # rl_action = self.qlearn.choose_action(str(current_state), excluded_actions)
             rl_action = self.qlearn.act(current_state, excluded_actions)
 
@@ -339,17 +337,18 @@ class SparseAgent(base_agent.BaseAgent):
             elif smart_action == ACTION_ATTACK:
                 # if attack enemy base:
                 # move_number do no increase, attack several times in the area.
-                if (self.base_top_left == 1 and int(x)>32 and int(y)>32 ) or (self.base_top_left == 0 and int(x)<=32 and int(y) <=32):
-                    if hasattr(self,"atk_count"):
+                if (self.base_top_left == 1 and int(x) > 32 and int(y) > 32) or (
+                        self.base_top_left == 0 and int(x) <= 32 and int(y) <= 32):
+                    if hasattr(self, "atk_count"):
                         print(f"{self.steps} attack base {x} {y} {self.atk_count}")
-                        if self.atk_count ==6: #attck 3 times
-                            self.atk_count=1
+                        if self.atk_count == 100:  # attck 3 times
+                            self.atk_count = 1
                         else:
-                            self.atk_count+=1
+                            self.atk_count += 1
                             self.move_number -= 1
                     else:
-                        self.atk_count=1
-                        self.move_number-=1
+                        self.atk_count = 1
+                        self.move_number -= 1
 
                 do_it = True
 
