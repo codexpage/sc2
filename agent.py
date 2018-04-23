@@ -272,7 +272,7 @@ class SparseAgent(base_agent.BaseAgent):
             if supply_free == 0 or barracks_count == 0:
                 excluded_actions.append(3)
 
-            if army_supply == 0:
+            if army_supply == 0 or army_supply < 10:
                 excluded_actions.extend([4, 5, 6, 7])
 
                 # get chosen action index
@@ -337,11 +337,11 @@ class SparseAgent(base_agent.BaseAgent):
             elif smart_action == ACTION_ATTACK:
                 # if attack enemy base:
                 # move_number do no increase, attack several times in the area.
-                print(f"{x} {y}")
+                # print(f"{x} {y}")
                 if int(x) > 32 and int(y) > 32:  # when attack enemy base at (47,47)
                     if hasattr(self, "atk_count"):
-                        print(f"{self.steps} attack base {x} {y} {self.atk_count}")
-                        if self.atk_count == 30:  # attck 3 times
+                        # print(f"{self.steps} attack base {x} {y} {self.atk_count}")
+                        if self.atk_count == 20:  # attck 3 times
                             self.atk_count = 1
                         else:
                             self.atk_count += 1
