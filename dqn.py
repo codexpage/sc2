@@ -55,7 +55,8 @@ class DQNAgent:
         else:
             minibatch = random.sample(self.memory, batch_size) #随机抽取一个batch
         for state, action, reward, next_state, done in minibatch:
-            if state == next_state: #skip the trasition to oneself, which do not contribute to learning
+            if (state == next_state).all(): #skip the trasition to oneself, which do not contribute to learning
+                print("same state")
                 continue
             target = reward
             if not done:

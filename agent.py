@@ -339,9 +339,10 @@ class SparseAgent(base_agent.BaseAgent):
             elif smart_action == ACTION_ATTACK:
                 # if attack enemy base:
                 # move_number do no increase, attack several times in the area.
-                if (self.base_top_left == 1 and x>32 and y>32 ) or (self.base_top_left == 0 and x<=32 and y <=32):
+                if (self.base_top_left == 1 and int(x)>32 and int(y)>32 ) or (self.base_top_left == 0 and int(x)<=32 and int(y) <=32):
                     if hasattr(self,"atk_count"):
-                        if self.atk_count ==3: #attck 3 times
+                        print(f"{self.steps} attack base {x} {y} {self.atk_count}")
+                        if self.atk_count ==6: #attck 3 times
                             self.atk_count=1
                         else:
                             self.atk_count+=1
