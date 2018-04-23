@@ -55,6 +55,8 @@ class DQNAgent:
         else:
             minibatch = random.sample(self.memory, batch_size) #随机抽取一个batch
         for state, action, reward, next_state, done in minibatch:
+            if state == next_state: #skip the trasition to oneself, which do not contribute to learning
+                continue
             target = reward
             if not done:
                 target = (reward + self.gamma *
@@ -72,9 +74,11 @@ class DQNAgent:
     def save(self, name):
         self.model.save_weights(name)
 
-    def sample(self):
-        pass
-
+    def sample(self, batch_size):
+        prob = np.array([(5 if transition[2] == 0 else 25) for transition in self.memory]) #give more prob on 1 and -1
+        prob = prob / sum(prob)
+        minibatch = np.random.choice(self.memory, batch_size, p=prob)
+        return minibatch
 
 if __name__ == "__main__":
     env = gym.make('CartPole-v1')
