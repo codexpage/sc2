@@ -15,11 +15,11 @@ class DQNAgent:
         self.state_size = state_size
         self.action_size = action_size
         self.memory = deque(maxlen=10000)
-        self.gamma = 0.95    # discount rate
+        self.gamma = 0.99    # discount rate 0.95
         self.epsilon = 1.0  # exploration rate 1-pure random
         self.epsilon_min = 0.01
         self.epsilon_decay = 0.995
-        self.learning_rate = 0.3 #0.001
+        self.learning_rate = 0.6 #0.001
         self.model = self._build_model()
         self.disallowed_actions = {}
 
@@ -49,7 +49,11 @@ class DQNAgent:
         # return np.argmax(act_values[0])  # returns action index
 
     def replay(self, batch_size):
-        minibatch = random.sample(self.memory, batch_size) #随机抽取一个batch
+        print(len(self.memory))
+        if len(self.memory)<batch_size:
+            minibatch = list(self.memory)
+        else:
+            minibatch = random.sample(self.memory, batch_size) #随机抽取一个batch
         for state, action, reward, next_state, done in minibatch:
             target = reward
             if not done:
