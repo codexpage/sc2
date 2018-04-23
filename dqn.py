@@ -6,6 +6,7 @@ from collections import deque
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.optimizers import Adam
+import matplotlib.pyplot as plt
 
 EPISODES = 1000
 
@@ -22,6 +23,7 @@ class DQNAgent:
         self.learning_rate = 0.6  # 0.001
         self.model = self._build_model()
         self.disallowed_actions = {}
+        self.history = {'loss': []}
 
     def _build_model(self):
         # Neural Net for Deep-Q learning Model
@@ -39,7 +41,7 @@ class DQNAgent:
 
     def act(self, state, excluded_actions=[]):
         action_available = list(range(self.action_size))
-        action_available = np.delete(action_available, excluded_actions) #delete the value by index
+        action_available = np.delete(action_available, excluded_actions)  # delete the value by index
 
         if np.random.rand() <= self.epsilon:
             # return random.randrange(self.action_size)
@@ -65,7 +67,11 @@ class DQNAgent:
             # print(state)
             target_f = self.model.predict(state)
             target_f[0][action] = target  # 只更改所选定的action的value
-            self.model.fit(state, target_f, epochs=1, verbose=0)  # fit就是update模型
+            history = self.model.fit(state, target_f, epochs=1, verbose=0)  # fit就是update模型
+            # self.history['acc'].extend(history.history['acc'])
+            # self.history['loss'].extend(history.history['loss'])
+            # self.plot()
+
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
 
@@ -81,6 +87,19 @@ class DQNAgent:
         prob = prob / sum(prob)
         minibatch = np.random.choice(self.memory, batch_size, p=prob)
         return minibatch
+
+    def plot(self):
+        # plt.plot(self.history['acc'])
+        # plt.title('acc')
+        # plt.ylabel('acc')
+        # plt.xlabel('epoch')
+        # plt.savefig('acc.png')
+
+        plt.plot(self.history['loss'])
+        plt.title('loss')
+        plt.ylabel('loss')
+        plt.xlabel('epoch')
+        plt.savefig('loss.png')
 
 
 if __name__ == "__main__":

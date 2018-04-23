@@ -272,7 +272,8 @@ class SparseAgent(base_agent.BaseAgent):
             if supply_free == 0 or barracks_count == 0:
                 excluded_actions.append(3)
 
-            if army_supply == 0 or army_supply < 10:
+            # if army_supply == 0 or army_supply < 10:
+            if army_supply == 0:
                 excluded_actions.extend([4, 5, 6, 7])
 
                 # get chosen action index
